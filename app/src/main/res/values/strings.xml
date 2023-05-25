@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyPhotoTags</string>
+    <string name="title_home">Home</string>
+    <string name="title_add">Add Photo</string>
+    <string name="title_search">Search</string>
+    <string name="title_login">Login</string>
+    <string name="video">video</string>
+    <string name="title_video">Video</string>
+</resources>
