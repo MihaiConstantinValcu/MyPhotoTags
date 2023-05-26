@@ -32,11 +32,6 @@ class SearchFragment : Fragment() {
     lateinit var photos: List<Imagini>
     lateinit var adapter: Adapter
 
-    private val listener: Adapter.onItemClickListener = object : Adapter.onItemClickListener {
-        override fun onItemClick(position: Int) {
-        }
-    }
-
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -114,7 +109,7 @@ class SearchFragment : Fragment() {
             val gridLayoutManager = GridLayoutManager(context, 2)
             recyclerView.layoutManager = gridLayoutManager
 
-            adapter = Adapter(photos, listener)
+            adapter = Adapter(photos)
             recyclerView.adapter = adapter
             adapter.notifyDataSetChanged()
 

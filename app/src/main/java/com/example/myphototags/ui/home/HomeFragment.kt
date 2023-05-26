@@ -23,14 +23,6 @@ class HomeFragment : Fragment() {
     lateinit var photos: List<Imagini>
     lateinit var adapter: Adapter
 
-    private val listener: Adapter.onItemClickListener = object : Adapter.onItemClickListener {
-        override fun onItemClick(position: Int) {
-            // Handle item click event
-            // This method will be called when an item in the RecyclerView is clicked
-            // You can perform any actions you want here
-        }
-    }
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -61,7 +53,7 @@ class HomeFragment : Fragment() {
         if(photos.isEmpty())
             noPhotoTextView.isVisible = true
 
-        adapter = Adapter(photos, listener)
+        adapter = Adapter(photos)
         recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
 

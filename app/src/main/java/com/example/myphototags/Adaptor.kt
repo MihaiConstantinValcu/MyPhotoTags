@@ -11,7 +11,7 @@ import com.example.myphototags.entities.Imagini
 
 
 @Suppress("DEPRECATION")
-class Adapter(private val dataList: List<Imagini>, private val listener: onItemClickListener): RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private val dataList: List<Imagini>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter.ViewHolder {
@@ -30,27 +30,15 @@ class Adapter(private val dataList: List<Imagini>, private val listener: onItemC
     }
 
     //the class is hodling the list view
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(content: Imagini) {
-            val imageView  = itemView.findViewById(R.id.list_item_image_view) as ImageView
+            val imageView = itemView.findViewById(R.id.list_item_image_view) as ImageView
             imageView.setImageBitmap(content.bitmap)
 
         }
 
-        init {
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            val position: Int = adapterPosition
-            if(position != RecyclerView.NO_POSITION){
-                listener.onItemClick(position)
-            }
-        }
     }
 
-    interface onItemClickListener {
-        fun onItemClick(position: Int)
-    }
+
 }
